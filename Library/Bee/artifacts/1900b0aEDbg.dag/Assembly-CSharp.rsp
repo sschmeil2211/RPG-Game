@@ -358,6 +358,8 @@
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/Interactable.cs"
 "Assets/Scripts/InventoryManager.cs"
+"Assets/Scripts/InventorySlot.cs"
+"Assets/Scripts/InventoryUI.cs"
 "Assets/Scripts/ItemPickUp.cs"
 "Assets/Scripts/ItemSO.cs"
 "Assets/Scripts/PlayerController.cs"

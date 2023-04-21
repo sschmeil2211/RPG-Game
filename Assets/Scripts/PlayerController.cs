@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour
@@ -17,9 +16,14 @@ public class PlayerController : MonoBehaviour
         _playerMotor = GetComponent<PlayerMotor>();
     }
 
-    private void Update() => MouseInput();
+    private void Update()
+    {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+        MovePlayer();
+    }
 
-    private void MouseInput()
+    private void MovePlayer()
     {
         if (Input.GetMouseButtonDown(0))
         {
