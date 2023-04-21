@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -26,13 +24,15 @@ public class Interactable : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        if(interactionTransform == null)
+            interactionTransform = transform;
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(interactionTransform.position, radius);
     }
 
     public virtual void Interact()
     {
-        Debug.Log("Interact"); 
+        Debug.Log("Interaction with " + transform.name); 
     }
 
     public void OnFocused(Transform playerTransform)

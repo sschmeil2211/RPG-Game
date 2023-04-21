@@ -356,6 +356,9 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/Interactable.cs"
+"Assets/Scripts/InventoryManager.cs"
+"Assets/Scripts/ItemPickUp.cs"
+"Assets/Scripts/ItemSO.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerMotor.cs"
 -langversion:9.0

@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
         _playerMotor = GetComponent<PlayerMotor>();
     }
 
-    private void Update()
+    private void Update() => MouseInput();
+
+    private void MouseInput()
     {
         if (Input.GetMouseButtonDown(0))
         {
