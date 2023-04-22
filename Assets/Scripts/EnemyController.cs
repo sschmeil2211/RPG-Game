@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    private CharacterCombat _characterCombat;
     private NavMeshAgent _navMeshAgent;
     private Transform _target;
 
@@ -14,6 +15,7 @@ public class EnemyController : MonoBehaviour
     {
         _target = PlayerManager.playerManagerInstance.player.transform;
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _characterCombat = GetComponent<CharacterCombat>();
     }
 
     private void Update()
@@ -24,6 +26,9 @@ public class EnemyController : MonoBehaviour
             _navMeshAgent.SetDestination(_target.position);
             if(distance <= _navMeshAgent.stoppingDistance)
             {
+                CharacterStats targetStats = _target.GetComponent<CharacterStats>();
+                if (targetStats != null)
+                    _characterCombat.Attack(targetStats);
                 FaceTarget();
             }
         }
