@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{39E66331-B874-9DC9-F2DA-1A059544237C}</ProjectGuid>
+    <ProjectGuid>{35993B4C-81CB-53BA-32EB-09E9A7BA0C27}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,25 +56,43 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\InventoryUI.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\PlayerManager.cs" />
-    <Compile Include="Assets\Scripts\EnemyStats.cs" />
-    <Compile Include="Assets\Scripts\EquipmentManager.cs" />
-    <Compile Include="Assets\Scripts\InventoryManager.cs" />
-    <Compile Include="Assets\Scripts\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryUI.cs" />
+    <Compile Include="Assets\Scripts\BuildingUI.cs" />
+    <Compile Include="Assets\Scripts\Managers\BuildingManager.cs" />
+    <Compile Include="Assets\Scripts\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\Cameras\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Characters\Enemy\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Characters\CharacterCombat.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Characters\Enemy\EnemyStats.cs" />
+    <Compile Include="Assets\Scripts\Characters\Enemy\MeleeEnemyController.cs" />
+    <Compile Include="Assets\Scripts\Managers\EquipmentManager.cs" />
+    <Compile Include="Assets\Scripts\Types.cs" />
+    <Compile Include="Assets\Scripts\Managers\InventoryManager.cs" />
+    <Compile Include="Assets\Scripts\DayCycle.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Characters\Player\PlayerAnimator.cs" />
+    <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
-    <Compile Include="Assets\Scripts\Equipment.cs" />
-    <Compile Include="Assets\Scripts\Stat.cs" />
-    <Compile Include="Assets\Scripts\PlayerStats.cs" />
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PlayerMotor.cs" />
-    <Compile Include="Assets\Scripts\ItemSO.cs" />
-    <Compile Include="Assets\Scripts\ItemPickUp.cs" />
-    <Compile Include="Assets\Scripts\CharacterStats.cs" />
-    <Compile Include="Assets\Scripts\CharacterCombat.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\EquipmentSO.cs" />
+    <Compile Include="Assets\Scripts\Characters\Enemy\SpellCasterEnemyController.cs" />
+    <Compile Include="Assets\Scripts\Characters\Stat.cs" />
+    <Compile Include="Assets\Scripts\Characters\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\WallsTrap.cs" />
+    <Compile Include="Assets\Scripts\Characters\Enemy\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Characters\CharacterAnimator.cs" />
+    <Compile Include="Assets\Scripts\Managers\SelectorManager.cs" />
+    <Compile Include="Assets\Scripts\Portal.cs" />
+    <Compile Include="Assets\Scripts\Characters\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Characters\Player\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\Characters\AnimationEventReceiver.cs" />
+    <Compile Include="Assets\Scripts\EquipmentUI.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ItemSO.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemPickUp.cs" />
+    <Compile Include="Assets\Scripts\CheckPlacement.cs" />
+    <Compile Include="Assets\Scripts\Characters\CharacterStats.cs" />
+    <Compile Include="Assets\Scripts\Cameras\PortalCamera.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -757,11 +775,17 @@
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -775,6 +799,9 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Services.Core">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.dll</HintPath>
     </Reference>
@@ -786,6 +813,9 @@
     </Reference>
     <Reference Include="Unity.Services.Core.Analytics">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>

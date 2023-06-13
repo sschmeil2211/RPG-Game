@@ -1,13 +1,13 @@
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
-{
-    public float radius = 3f;
-    public Transform interactionTransform;
-
+{ 
     private bool _hasInteracted = false;
     private bool _isFocus = false;
     private Transform _player;
+
+    public float radius = 3f; //Que tan cerca debo estar para interactuar
+    public Transform interactionTransform;
 
     private void Update()
     {
@@ -17,7 +17,7 @@ public class Interactable : MonoBehaviour
             if (distance <= radius)
             {
                 Interact();
-                _hasInteracted |= true;
+                _hasInteracted = true;
             }
         }
     }
@@ -48,4 +48,4 @@ public class Interactable : MonoBehaviour
         _player = null;
         _hasInteracted = false;
     }
-}
+} 
